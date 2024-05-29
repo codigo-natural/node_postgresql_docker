@@ -1,4 +1,4 @@
-const boom = require('@hapi/boom');
+import boom from '@hapi/boom';
 
 class UserService {
   constructor() {}
@@ -27,4 +27,6 @@ class UserService {
   }
 }
 
-module.exports = UserService;
+export default UserService;
+
+// module.exports = UserService;

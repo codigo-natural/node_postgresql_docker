@@ -1,4 +1,4 @@
-const boom = require('@hapi/boom');
+import boom from '@hapi/boom';
 
 class CategoryService {
 
@@ -29,4 +29,6 @@ class CategoryService {
 
 }
 
-module.exports = CategoryService;
+export default CategoryService;
+
+// module.exports = CategoryService;
