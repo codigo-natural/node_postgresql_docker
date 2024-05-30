@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import routerApi from './routes/index.js';
 
 import { logErrors, errorHandler, boomErrorHandler } from './middlewares/error.handler.js';
@@ -20,6 +21,7 @@ const options = {
   }
 }
 app.use(cors(options));
+dotenv.config();
 
 app.get('/', (req, res) => {
   res.send('Hola mi server en express');

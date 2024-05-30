@@ -113,3 +113,17 @@ router.get('/', async (req, res, next) => {
 
 export default router;
 ```
+
+-------
+## comandos frecuentes:
+| Comando                                        | Descripción                      |
+|------------------------------------------------|----------------------------------|
+| `docker-compose exec postgres bash`            | Conexión via terminal            |
+| `ls -l`                                        | Ver todos los archivos           |
+| `psql -h localhost -d <POSTGRES_DB> -U <POSTGRES_USER>` | Conexión a Postgres       |
+| `\d+`                                          | Estructura de la base de datos   |
+| `\q`                                           | Salir de la base de datos        |
+| `exit`                                         | Salir del contenedor             |
+| `docker-compose up -d pgadmin`                 | Levantar servicio de pgadmin     |
+| `docker-ps`                                    | Tabla de servicios               |
+| `docker-inspect <id>`                          | Detalle del contenedor           |
