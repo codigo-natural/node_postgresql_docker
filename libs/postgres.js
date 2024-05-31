@@ -1,14 +1,10 @@
-import pg from 'pg'
-const { Pool } = pg
-import dotenv from 'dotenv'
-dotenv.config()
+import pg from 'pg';
+import { config } from '../config/index.js';
+const { Pool } = pg;
+const USER = encodeURIComponent(config.dbUser);
+const PASSWORD = encodeURIComponent(config.dbPassword);
+const URI = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbport}/${config.dbName}`;
 
-  const pool = new Pool({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-  })
+const pool = new Pool({ connectionString: URI });
 
-export default pool
+export default pool;

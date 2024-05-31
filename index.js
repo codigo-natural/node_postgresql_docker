@@ -1,4 +1,3 @@
-import dotenv from 'dotenv';
 import cors from 'cors';
 import express from 'express';
 import routerApi from './routes/index.js';
@@ -7,11 +6,10 @@ import {
   errorHandler,
   logErrors,
 } from './middlewares/error.handler.js';
-
-dotenv.config();
+import { config } from './config/index.js';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = config.port || 3000;
 
 app.use(express.json());
 
