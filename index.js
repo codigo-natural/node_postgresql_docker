@@ -1,16 +1,21 @@
-import express from 'express';
-import cors from 'cors';
 import dotenv from 'dotenv';
+import cors from 'cors';
+import express from 'express';
 import routerApi from './routes/index.js';
+import {
+  boomErrorHandler,
+  errorHandler,
+  logErrors,
+} from './middlewares/error.handler.js';
 
-import { logErrors, errorHandler, boomErrorHandler } from './middlewares/error.handler.js';
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const whitelist = ['http://localhost:8080',];
+const whitelist = ['http://localhost:8080'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
@@ -18,10 +23,9 @@ const options = {
     } else {
       callback(new Error('no permitido'));
     }
-  }
-}
+  },
+};
 app.use(cors(options));
-dotenv.config();
 
 app.get('/', (req, res) => {
   res.send('Hola mi server en express');
@@ -37,7 +41,6 @@ app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
-
 app.listen(port, () => {
-  console.log('Mi port' +  port);
+  console.log('Mi port' + port);
 });

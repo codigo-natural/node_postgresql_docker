@@ -15,5 +15,3 @@ function routerApi(app) {
 }
 
 export default routerApi;
-
-// module.exports = routerApi;
