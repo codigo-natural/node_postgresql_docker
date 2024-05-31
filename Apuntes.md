@@ -127,3 +127,22 @@ export default router;
 | `docker-compose up -d pgadmin`                 | Levantar servicio de pgadmin     |
 | `docker-ps`                                    | Tabla de servicios               |
 | `docker-inspect <id>`                          | Detalle del contenedor           |
+
+
+-------
+# ORM
+
+💡 **Un ORM** (Object-Relational Mapping) es un modelo de programación que permite mapear las estructuras de una base de datos relacional.
+
+Al abstraer este tipo de programación, delegamos su implementación al backend, es decir, le añadimos una responsabilidad a la capa transaccional del servidor.
+
+## ✨ Beneficios
+
+- Acciones como CRUD (Create, Read, Update, Delete) son administradas mediante ORM.
+- La implementación de seeds o semillas nos permite recuperar, mediante código, la estructura de una base de datos.
+- Una de las bases teóricas para entender este modelo es mediante el conocimiento de DAO (Data Access Object) y DTO (Data Transfer Object), los cuales nos permiten desestructurar un ORM en módulos de abstracción para acceder a la base de datos y transferir datos desde la misma base de datos, respectivamente.
+
+## 🙃 Contras
+
+- Delegación de responsabilidades al servidor.
+- Descentralización de trabajo, directa, de una base de datos.

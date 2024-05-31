@@ -1,5 +1,6 @@
 import boom from '@hapi/boom';
-import pool from '../libs/postgres.js';
+// import pool from '../libs/postgres.js';
+import sequelize from '../libs/sequelize.js';
 
 class UserService {
   constructor() {}
@@ -10,7 +11,7 @@ class UserService {
 
   async find() {
     const query = 'SELECT * FROM tasks';
-    const result = await pool.query(query);
+    const result = await sequelize.query(query);
     return result.rows;
   }
 
@@ -31,5 +32,3 @@ class UserService {
 }
 
 export default UserService;
-
-// module.exports = UserService;
