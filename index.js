@@ -5,6 +5,7 @@ import {
   boomErrorHandler,
   errorHandler,
   logErrors,
+  ormErrorHandler,
 } from './middlewares/error.handler.js';
 import { config } from './config/index.js';
 
@@ -36,6 +37,7 @@ app.get('/nueva-ruta', (req, res) => {
 routerApi(app);
 
 app.use(logErrors);
+app.use(ormErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
