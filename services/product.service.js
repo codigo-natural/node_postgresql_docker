@@ -1,13 +1,13 @@
 import { faker } from '@faker-js/faker';
 import boom from '@hapi/boom';
-import sequelize from '../libs/sequelize.js';
+import {sequelize} from '../libs/sequelize.js';
 // import pool from '../libs/postgres.js';
 
 class ProductsService {
 
   constructor(){
-    this.products = [];
-    this.generate()
+    // this.products = [];
+    // this.generate()
   }
 
   generate() {

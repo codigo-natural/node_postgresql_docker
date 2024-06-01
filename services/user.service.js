@@ -1,6 +1,7 @@
 import boom from '@hapi/boom';
 // import pool from '../libs/postgres.js';
-import sequelize from '../libs/sequelize.js';
+// import { models } from '../database/models/index.js';
+import { models } from '../libs/sequelize.js'
 
 class UserService {
   constructor() {}
@@ -10,9 +11,8 @@ class UserService {
   }
 
   async find() {
-    const query = 'SELECT * FROM tasks';
-    const result = await sequelize.query(query);
-    return result.rows;
+    const result = await models.User.findAll();
+    return result;
   }
 
   async findOne(id) {
