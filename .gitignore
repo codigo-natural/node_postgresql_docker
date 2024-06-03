@@ -196,3 +196,4 @@ $RECYCLE.BIN/
 
 # file persist data in docker
 postgres_db
+mysql_data
