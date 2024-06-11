@@ -1,9 +1,9 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from "dotenv";
+dotenv.config();
 
-export const config = {
+const config = {
   // config app
-  env: process.env.NODE_ENV || 'development',
+  env: process.env.NODE_ENV || "development",
   port: process.env.PORT || 3000,
   dbHost: process.env.DB_HOST,
   // config database for postgres
@@ -16,4 +16,6 @@ export const config = {
   dbPasswordMysql: process.env.MYSQL_PASSWORD,
   dbPortMysql: process.env.MYSQL_PORT,
   dbNameMysql: process.env.MYSQL_DB_NAME,
-}
+};
+
+export default config

@@ -7,7 +7,7 @@ import {
   logErrors,
   ormErrorHandler,
 } from './middlewares/error.handler.js';
-import { config } from './config/index.js';
+import config from './config/index.js';
 
 const app = express();
 const port = config.port || 3000;

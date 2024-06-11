@@ -30,5 +30,3 @@ class OrderService {
 }
 
 export default OrderService;
-
-// module.exports = OrderService;

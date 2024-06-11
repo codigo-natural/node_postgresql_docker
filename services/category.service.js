@@ -30,5 +30,3 @@ class CategoryService {
 }
 
 export default CategoryService;
-
-// module.exports = CategoryService;
