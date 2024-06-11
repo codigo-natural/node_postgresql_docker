@@ -1,4 +1,4 @@
-// 20240611005030-create-user.mjs
+// 20240611145811-add-role.mjs
 'use strict';
 
 import { USER_TABLE, UserSchema } from "../models/user.model.js"
@@ -11,7 +11,7 @@ import { USER_TABLE, UserSchema } from "../models/user.model.js"
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable(USER_TABLE, UserSchema)
+    await queryInterface.addColumn(USER_TABLE, 'role', UserSchema.role)
   }
 
 /** @type {typeof import('../migrate.mjs').migrator['_types']['migration']} */
@@ -22,5 +22,5 @@ import { USER_TABLE, UserSchema } from "../models/user.model.js"
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable(USER_TABLE)
+    await queryInterface.removeColumn(USER_TABLE, 'role')
   }
