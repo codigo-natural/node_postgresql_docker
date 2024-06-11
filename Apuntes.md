@@ -166,3 +166,5 @@ Es como un sistema de control de versiones para manejar los cambios desde el có
 Básicamente, las migraciones mantienen el historial del esquema que se lleva en la base de datos. Es un sistema muy usado en ambientes de producción para trackear los cambios sin tener que replicar todo nuevamente (creación de tablas, llaves foráneas, etc). Es decir, permite saber en qué punto estaba para saber qué es lo que se tiene que modificar.
 
 ---
+
+![alt text](image-1.png)
