@@ -1,7 +1,7 @@
 'use strict';
 
-import { CUSTOMER_TABLE } from '../models/customer.model';
-import { DataTypes } from 'sequelize';
+import { CATEGORY_TABLE, CategorySchema } from '../models/category.model';
+import { PRODUCT_TABLE, ProductSchema } from '../models/product.model';
 
 /** @type {import('sequelize-cli').Migration} */
   export const up = async (queryInterface) => {
@@ -11,12 +11,8 @@ import { DataTypes } from 'sequelize';
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    return queryInterface.changeColumn(CUSTOMER_TABLE, 'user_id', {
-      field: 'user_id',
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      unique: true,
-    });
+    return await queryInterface.createTable(CATEGORY_TABLE, CategorySchema);
+    return await queryInterface.createTable(PRODUCT_TABLE, ProductSchema);
   }
 
   export const down = async (queryInterface) => {
@@ -26,5 +22,6 @@ import { DataTypes } from 'sequelize';
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable(CUSTOMER_TABLE);
+    return await queryInterface.dropTable(CATEGORY_TABLE);
+    return await queryInterface.dropTable(PRODUCT_TABLE);
   }
