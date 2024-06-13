@@ -1,38 +1,42 @@
-import  { Model, DataTypes, Sequelize } from 'sequelize'
+import { Model, DataTypes, Sequelize } from 'sequelize';
 
-const USER_TABLE = 'users'
+const USER_TABLE = 'users';
 const UserSchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
   },
   email: {
     allowNull: false,
     type: DataTypes.STRING,
-    unique: true
+    unique: true,
   },
   password: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
   },
   role: {
     allowNull: false,
     type: DataTypes.STRING,
-    defaultValue: 'customer'
+    defaultValue: 'customer',
   },
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,
     field: 'create_at',
-    defaultValue: Sequelize.NOW
-  }
-}
+    defaultValue: Sequelize.NOW,
+  },
+};
 
 class User extends Model {
-  static associate() {
+  static associate(models) {
     // associate
+    this.hasOne(models.Customer, {
+      as: 'customer',
+      foreignKey: 'userId',
+    });
   }
 
   static config(sequelize) {
@@ -40,9 +44,9 @@ class User extends Model {
       sequelize,
       tableName: USER_TABLE,
       modelName: 'User',
-      timestamps: false
-    }
+      timestamps: false,
+    };
   }
 }
 
-export { USER_TABLE, UserSchema, User }
+export { USER_TABLE, UserSchema, User };

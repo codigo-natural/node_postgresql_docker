@@ -1,7 +1,7 @@
 import boom from '@hapi/boom';
 // import pool from '../libs/postgres.js';
 // import { models } from '../database/models/index.js';
-import { models } from '../libs/sequelize.js'
+import { models } from '../libs/sequelize.js';
 
 class UserService {
   constructor() {}
@@ -12,7 +12,9 @@ class UserService {
   }
 
   async find() {
-    const result = await models.User.findAll();
+    const result = await models.User.findAll({
+      include: ['customer'],
+    });
     return result;
   }
 
@@ -29,10 +31,10 @@ class UserService {
     const rta = await user.update(changes);
     return rta;
   }
-  
+
   async delete(id) {
     const user = await this.findOne(id);
-    await user.destroy()
+    await user.destroy();
     return { id };
   }
 }
