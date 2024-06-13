@@ -1,11 +1,11 @@
 import boom from '@hapi/boom';
-import { models } from '../libs/sequelize.js';
 
 class OrderService {
-  constructor() {}
+
+  constructor(){
+  }
   async create(data) {
-    const newOrder = await models.Order.create(data);
-    return newOrder;
+    return data;
   }
 
   async find() {
@@ -13,15 +13,7 @@ class OrderService {
   }
 
   async findOne(id) {
-    const order = await models.Order.findByPk(id, {
-      include: [
-        {
-          association: 'customer',
-          include: ['user'],
-        },
-      ],
-    });
-    return order;
+    return { id };
   }
 
   async update(id, changes) {
@@ -34,6 +26,7 @@ class OrderService {
   async delete(id) {
     return { id };
   }
+
 }
 
 export default OrderService;

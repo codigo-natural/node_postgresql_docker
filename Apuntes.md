@@ -1,6 +1,3 @@
-## Esquema de la base de datos:
-![alt text](image-2.png)
-
 ### Serverless
 💡Es un tipo de arquitectura que nos permite descentralizar los diferentes recursos existentes de nuestra aplicación.
 
