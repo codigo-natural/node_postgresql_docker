@@ -1,7 +1,7 @@
 'use strict';
 
-import { CATEGORY_TABLE, CategorySchema } from '../models/category.model';
-import { PRODUCT_TABLE, ProductSchema } from '../models/product.model';
+import { CATEGORY_TABLE, CategorySchema } from '../models/category.model.js';
+import { PRODUCT_TABLE, ProductSchema } from '../models/product.model.js';
 
 /** @type {import('sequelize-cli').Migration} */
   export const up = async (queryInterface) => {

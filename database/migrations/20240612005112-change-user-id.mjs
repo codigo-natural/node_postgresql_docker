@@ -1,6 +1,6 @@
 'use strict';
 
-import { CUSTOMER_TABLE } from '../models/customer.model';
+import { CUSTOMER_TABLE } from '../models/customer.model.js';
 import { DataTypes } from 'sequelize';
 
 /** @type {import('sequelize-cli').Migration} */

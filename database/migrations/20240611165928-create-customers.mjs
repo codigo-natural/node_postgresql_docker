@@ -1,5 +1,5 @@
 'use strict';
-import { CUSTOMER_TABLE, CustomerSchema } from '../models/customer.model';
+import { CUSTOMER_TABLE, CustomerSchema } from '../models/customer.model.js';
 
 /** @type {import('sequelize-cli').Migration} */
   export const up = async (queryInterface) => {
