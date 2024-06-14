@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import boom from '@hapi/boom';
+import { Op } from 'sequelize';
 import { models } from '../libs/sequelize.js';
 // import pool from '../libs/postgres.js';
 
@@ -30,11 +31,23 @@ class ProductsService {
   async find(query) {
     const options = {
       include: ['category'],
+      where: {},
     };
     const { limit, offset } = query;
     if (limit && offset) {
       options.limit = limit;
       options.offset = offset;
+    }
+
+    const { price } = query;
+    if (price) {
+      options.where.price = price;
+    }
+    const { priceMin, priceMax } = query;
+    if (priceMin && priceMax) {
+      options.where.price = {
+        [models.Sequelize.Op.between]: [priceMin, priceMax],
+      };
     }
     const products = await models.Product.findAll(options);
     return products;
