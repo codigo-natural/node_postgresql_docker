@@ -1,4 +1,3 @@
-// 20240611005030-create-user.mjs
 'use strict';
 
 import { USER_TABLE, UserSchema } from "../models/user.model.js"

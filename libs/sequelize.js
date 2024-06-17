@@ -1,4 +1,3 @@
-// libs/sequelize.js
 import { Sequelize } from 'sequelize';
 import config from '../config/index.js';
 import { setupModels } from '../database/models/index.js';
