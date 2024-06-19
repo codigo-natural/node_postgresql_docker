@@ -5,7 +5,7 @@ import {
   addItemSchema,
   createOrderSchema,
   getOrderSchema,
-} from '../schemas/order.schema';
+} from '../schemas/order.schema.js';
 
 const router = express.Router();
 const service = new OrderService();

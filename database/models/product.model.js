@@ -1,5 +1,5 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
-import { CATEGORY_TABLE } from './category.model';
+import { CATEGORY_TABLE } from './category.model.js';
 
 const PRODUCT_TABLE = 'products';
 

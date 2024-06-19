@@ -8,6 +8,7 @@ import {
   ormErrorHandler,
 } from './middlewares/error.handler.js';
 import config from './config/index.js';
+import { sequelize } from './libs/sequelize.js';
 
 const app = express();
 const port = config.port || 3000;
@@ -41,6 +42,19 @@ app.use(ormErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
-app.listen(port, () => {
-  console.log('Mi port' + port);
-});
+
+async function main() {
+  try {
+    await sequelize.sync({ force: false });
+    console.log("Connection has been established successfully.");
+
+    app.listen(port, () => {
+      console.log("===================================");
+      console.log(`Server is running on port ${port}`);
+      console.log("===================================");
+    });
+  } catch (error) {
+    console.error("Unable to connect to the database:", error);
+  }
+}
+main()

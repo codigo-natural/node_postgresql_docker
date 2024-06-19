@@ -12,7 +12,6 @@ import { PRODUCT_TABLE, ProductSchema } from '../models/product.model.js';
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
     return await queryInterface.createTable(CATEGORY_TABLE, CategorySchema);
-    return await queryInterface.createTable(PRODUCT_TABLE, ProductSchema);
   }
 
   export const down = async (queryInterface) => {
