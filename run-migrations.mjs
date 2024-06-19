@@ -1,4 +1,3 @@
-//run-migrations.mjs
 import umzug from "./database/umzug.mjs";
 
 const command = process.argv[2];

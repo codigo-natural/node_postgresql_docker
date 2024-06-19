@@ -1,4 +1,3 @@
-// database/umzug.ms
 import pkg from 'umzug'
 const { Umzug, SequelizeStorage } = pkg
 import { sequelize } from '../libs/sequelize.js'

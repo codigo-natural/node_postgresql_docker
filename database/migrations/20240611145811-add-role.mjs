@@ -1,4 +1,3 @@
-// 20240611145811-add-role.mjs
 'use strict';
 
 import { DataTypes } from "sequelize";

@@ -1,6 +1,4 @@
 import boom from '@hapi/boom';
-// import pool from '../libs/postgres.js';
-// import { models } from '../database/models/index.js';
 import { models } from '../libs/sequelize.js';
 
 class UserService {
