@@ -9,6 +9,7 @@ import {
 } from './middlewares/error.handler.js';
 import config from './config/index.js';
 import { sequelize } from './libs/sequelize.js';
+import { checkApiKey } from './middlewares/auth.handler.js';
 
 const app = express();
 const port = config.port || 3000;
@@ -31,7 +32,7 @@ app.get('/', (req, res) => {
   res.send('Hola mi server en express');
 });
 
-app.get('/nueva-ruta', (req, res) => {
+app.get('/nueva-ruta', checkApiKey, (req, res) => {
   res.send('Hola, soy una nueva ruta');
 });
 

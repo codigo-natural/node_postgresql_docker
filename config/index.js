@@ -6,6 +6,7 @@ const config = {
   env: process.env.NODE_ENV || "development",
   port: process.env.PORT || 3000,
   dbHost: process.env.DB_HOST,
+  apiKey: process.env.API_KEY,
   // config database for postgres
   dbportPostgres: process.env.DB_PORT_POSTGRES,
   dbUserPostgres: process.env.POSTGRES_USER,
