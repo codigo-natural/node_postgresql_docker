@@ -1,4 +1,5 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
+import bcrypt from 'bcrypt';
 
 const USER_TABLE = 'users';
 const UserSchema = {
@@ -45,6 +46,18 @@ class User extends Model {
       tableName: USER_TABLE,
       modelName: 'User',
       timestamps: false,
+      /*
+        ? Docs
+        los hooks con sequelize para que realice el hash de la contraseña antes de guardar los datos
+        De esta forma puedes evitar realizar el hash en los servicios user y customer y dejarlos como estaban anteriormente.
+
+      */
+      // hooks: {
+      //   beforeCreate: async (user, options) => {
+      //     const password = await bcrypt.hash(user.password, 10);
+      //     user.password = password;
+      //   },
+      // },
     };
   }
 }
