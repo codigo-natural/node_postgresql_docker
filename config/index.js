@@ -1,12 +1,13 @@
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 dotenv.config();
 
 const config = {
   // config app
-  env: process.env.NODE_ENV || "development",
+  env: process.env.NODE_ENV || 'development',
   port: process.env.PORT || 3000,
   dbHost: process.env.DB_HOST,
   apiKey: process.env.API_KEY,
+  jwtSecret: process.env.JWT_SECRET,
   // config database for postgres
   dbportPostgres: process.env.DB_PORT_POSTGRES,
   dbUserPostgres: process.env.POSTGRES_USER,
@@ -19,4 +20,4 @@ const config = {
   dbNameMysql: process.env.MYSQL_DB_NAME,
 };
 
-export default config
+export default config;
