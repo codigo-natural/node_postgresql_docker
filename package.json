@@ -9,7 +9,7 @@
     "start": "node index.js",
     "lint": "eslint",
     "migrations:generate": "sequelize-cli migration:generate --name",
-    "migrations:run": "sequelize-cli db:migrate --debug",
+    "migrations:run": "sequelize-cli db:migrate",
     "migrations:revert": "sequelize-cli db:migrate:undo",
     "migrations:delete": "sequelize-cli db:migrate:undo:all"
   },
@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^9.3.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
