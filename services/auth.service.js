@@ -26,18 +26,40 @@ class AuthService {
       sub: user.id,
       role: user.role,
     };
-    const token = jwt.sign(payload, config.jwtSecret, { expiresIn: '1h' });
+    const token = jwt.sign(payload, config.jwtSecret);
     res.json({
       user,
       token,
     });
   }
 
-  async sendMailRecovery(email) {
-    const user = await service.findByEmail(email);
-    if (!user) {
+  async sendRecovery(email) {
+    try {
+      const user = await service.findByEmail(email);
+      if (!user) {
+        throw boom.unauthorized();
+      }
+      const payload = { sub: user.id };
+      const token = jwt.sign(payload, config.jwtSecret, { expiresIn: '15m' });
+      const link = `http://myfrontend.com/recovery?token=${token}`;
+      await service.update(user.id, { recoveryToken: token });
+
+      const mail = {
+        from: config.mailUser, // sender address
+        to: `${user.email}`, // list of receivers
+        subject: 'email para recuperar contraseña', // Subject line
+        // text: 'Hola camilo, eres un crak', // plain text body
+        html: `<b>Ingresa a este link => ${link} </b>`, // html body
+      };
+      const rta = await this.sendMail(mail);
+      return rta;
+
+    } catch (error) {
       throw boom.unauthorized();
     }
+  }
+
+  async sendMail(infoMail) {
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 465,
@@ -47,13 +69,7 @@ class AuthService {
       },
     });
 
-    await transporter.sendMail({
-      from: config.mailUser, // sender address
-      to: `${user.email}`, // list of receivers
-      subject: 'Este es un nuevo correo personalizado', // Subject line
-      text: 'Hola camilo, eres un crak', // plain text body
-      html: 'Hola camilo, eres un crak', // html body
-    });
+    await transporter.sendMail(infoMail);
     return {
       message: 'Email sent',
     };

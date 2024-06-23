@@ -1,7 +1,5 @@
 import express from 'express';
-import jwt from 'jsonwebtoken';
 import passport from 'passport';
-import config from '../config/index.js';
 import AuthService from '../services/auth.service.js';
 
 const router = express.Router();
@@ -25,7 +23,7 @@ router.post(
   async (req, res, next) => {
     try {
       const { email } = req.body;
-      const rta = await service.sendMailRecovery(email);
+      const rta = await service.sendRecovery(email);
       res.json(rta);
     } catch (error) {
       next(error);
