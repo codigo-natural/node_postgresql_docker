@@ -2,18 +2,21 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const config = {
-  // config app
+  // ! config app
   env: process.env.NODE_ENV || 'development',
   port: process.env.PORT || 3000,
   dbHost: process.env.DB_HOST,
   apiKey: process.env.API_KEY,
   jwtSecret: process.env.JWT_SECRET,
-  // config database for postgres
+  // ! CONFIG NODEMAILER
+  mailUser: process.env.USER,
+  mailPassword: process.env.PASSWORD,
+  // ! config database for postgres
   dbportPostgres: process.env.DB_PORT_POSTGRES,
   dbUserPostgres: process.env.POSTGRES_USER,
   dbNamePostgres: process.env.POSTGRES_DB_NAME,
   dbPasswordPostgres: process.env.POSTGRES_PASSWORD,
-  //  config database for mysql
+  // ! config database for mysql
   dbUserMysql: process.env.MYSQL_USER,
   dbPasswordMysql: process.env.MYSQL_PASSWORD,
   dbPortMysql: process.env.MYSQL_PORT,
